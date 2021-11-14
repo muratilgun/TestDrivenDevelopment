@@ -10,7 +10,9 @@ namespace DvdLibrary
         public void Donate(Movie movie)
         {
             _movies.Add(movie);
-            movie.Copies++;
+            movie.AddCopy();
         }
+
+
     }
 }
