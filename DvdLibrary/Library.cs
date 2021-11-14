@@ -5,14 +5,17 @@ namespace DvdLibrary
     public class Library
     {
         private List<Movie> _movies = new List<Movie>();
-        public List<Movie> Catalogue => _movies;
+        private List<Movie> Catalogue => _movies;
 
         public void Donate(Movie movie)
         {
             _movies.Add(movie);
             movie.AddCopy();
         }
-
+        public  bool ContainsMovie( Movie movie)
+        {
+            return Catalogue.Contains(movie);
+        }
 
     }
 }
