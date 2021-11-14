@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ShoppingBasket.Test
 {
@@ -11,6 +12,6 @@ namespace ShoppingBasket.Test
             _items = items;
         }
 
-        public double Total => _items.Count > 0 ? _items[0].Price : 0;
+        public double Total => _items.Aggregate(0, (double sum, Item item) => sum + item.Price);
     }
 }
