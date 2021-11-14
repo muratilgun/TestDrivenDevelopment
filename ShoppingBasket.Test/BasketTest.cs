@@ -12,18 +12,4 @@ namespace ShoppingBasket.Test
             Assert.AreEqual(0.0,basket.Total);
         }
     }
-
-    public class Item
-    {
-    }
-
-    public class Basket
-    {
-        public Basket(List<Item> items)
-        {
-            
-        }
-
-        public double Total => 0.0;
-    }
 }
