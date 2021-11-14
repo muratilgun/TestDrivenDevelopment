@@ -7,10 +7,11 @@ namespace CdWarehouse.Test
        public class BuyCdTest
        {
            [Test]
-           public void CdCreatedWithInitialStock()
+           public void EnoughStock()
            {
                CD cd = new CD(10);
-               Assert.AreEqual(10, cd.StockCount);
+               cd.Buy(1);
+               Assert.AreEqual(9,cd.StockCount);
            }
        }
     }
@@ -21,6 +22,26 @@ namespace CdWarehouse.Test
         {
             StockCount = initialStock;
         }
-        public double StockCount { get; private set; }
+
+        public int StockCount { get; private set; }
+
+        public void Buy(int quantity)
+        {
+            StockCount -= quantity;
+        }
     }
+    //  [Test]
+    //        public void CdCreatedWithInitialStock()
+    //        {
+    //            CD cd = new CD(10);
+    //            Assert.AreEqual(10, cd.StockCount);
+    //        }
+    // public class CD
+    // {
+    //     public CD(int initialStock)
+    //     {
+    //         StockCount = initialStock;
+    //     }
+    //     public double StockCount { get; private set; }
+    // }
 }
