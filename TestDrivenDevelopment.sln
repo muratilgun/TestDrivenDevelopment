@@ -4,6 +4,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingBasket.Test", "Shop
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DvdLibrary.Test", "DvdLibrary.Test\DvdLibrary.Test.csproj", "{F7CEEE7B-5759-4D76-97B8-FDAB576A7CEE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DvdLibrary", "DvdLibrary", "{4B899758-7194-4B12-A5FE-2EE97EF24C5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DvdLibrary", "DvdLibrary\DvdLibrary.csproj", "{FB273B30-2261-461C-BF6D-C0405A25DB2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingBasket", "ShoppingBasket", "{152017C2-8304-444F-9FE8-80F8B26160E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,14 @@ Global
 		{F7CEEE7B-5759-4D76-97B8-FDAB576A7CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7CEEE7B-5759-4D76-97B8-FDAB576A7CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7CEEE7B-5759-4D76-97B8-FDAB576A7CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB273B30-2261-461C-BF6D-C0405A25DB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB273B30-2261-461C-BF6D-C0405A25DB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB273B30-2261-461C-BF6D-C0405A25DB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB273B30-2261-461C-BF6D-C0405A25DB2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7CEEE7B-5759-4D76-97B8-FDAB576A7CEE} = {4B899758-7194-4B12-A5FE-2EE97EF24C5B}
+		{FB273B30-2261-461C-BF6D-C0405A25DB2D} = {4B899758-7194-4B12-A5FE-2EE97EF24C5B}
+		{9FD9CB43-EC5E-41D9-8556-93F07BD5765E} = {152017C2-8304-444F-9FE8-80F8B26160E1}
 	EndGlobalSection
 EndGlobal

@@ -11,6 +11,7 @@ namespace DvdLibrary
             Movie movie = new Movie();
             library.Donate(movie);
             Assert.True(library.Catalogue.Contains(movie));
+            Assert.AreEqual(1,movie.Copies);
         }
     }
 }
