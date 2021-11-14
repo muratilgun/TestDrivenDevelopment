@@ -2,8 +2,8 @@
 {
     public class Item
     {
-        public int Quantity { get; }
-        public double Price { get; }
+        private int Quantity { get; }
+        private double Price { get; }
 
         public Item(int quantity, double price)
         {
