@@ -14,10 +14,9 @@ namespace DvdLibrary
             _library.Donate(_movie);
         }
         [Test]
-        public void DonateDvd()
+        public void MovieAddedToLibrary()
         {
             Assert.True(_library.ContainsMovie( _movie));
-            RentalCopyAddedToMovie();
         }
         [Test]
         public void RentalCopyAddedToMovie()
