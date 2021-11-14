@@ -10,5 +10,10 @@
             Quantity = quantity;
             Price = price;
         }
+
+        public double Subtotal()
+        {
+            return this.Quantity * this.Price;
+        }
     }
 }
