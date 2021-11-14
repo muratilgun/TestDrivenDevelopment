@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace CdWarehouse.Test
 {
@@ -13,7 +14,19 @@ namespace CdWarehouse.Test
                cd.Buy(1);
                Assert.AreEqual(9,cd.StockCount);
            }
+
+           [Test]
+           public void NotEnoughStock()
+           {
+               CD cd = new CD(10);
+               Assert.Throws<InsfficientStockException>(() => cd.Buy(11));
+           }
+           
        }
+    }
+
+    public class InsfficientStockException : Exception
+    {
     }
 
     public class CD
@@ -27,6 +40,8 @@ namespace CdWarehouse.Test
 
         public void Buy(int quantity)
         {
+            if (quantity > StockCount)
+                throw new InsfficientStockException();
             StockCount -= quantity;
         }
     }

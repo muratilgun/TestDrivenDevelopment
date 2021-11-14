@@ -8,8 +8,8 @@ Record labels send batches of CDs to the warehouse.
 Customers can only order titles that are in stock.
 
 Buy a CD
-*Enough stock - quantity bouth deducted from stock count
-*Not Enough stock - throw an exception ?
+X Enough stock - quantity bouth deducted from stock count
+X Not Enough stock - throw an exception ?
 
 Searching for a CD
 * CD is in catalogue - CD is returned 
