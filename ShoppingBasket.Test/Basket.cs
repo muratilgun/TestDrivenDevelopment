@@ -4,11 +4,13 @@ namespace ShoppingBasket.Test
 {
     public class Basket
     {
+        private readonly List<Item> _items;
+
         public Basket(List<Item> items)
         {
-            
+            _items = items;
         }
 
-        public double Total => 0.0;
+        public double Total => _items.Count > 0 ? _items[0].Price : 0;
     }
 }
