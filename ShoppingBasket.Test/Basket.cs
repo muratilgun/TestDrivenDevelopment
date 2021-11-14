@@ -12,6 +12,6 @@ namespace ShoppingBasket.Test
             _items = items;
         }
 
-        public double Total => _items.Aggregate(0, (double sum, Item item) => sum + item.Price);
+        public double Total => _items.Aggregate(0, (double sum, Item item) => sum + (item.Quantity * item.Price));
     }
 }
