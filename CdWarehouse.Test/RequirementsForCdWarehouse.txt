@@ -1,0 +1,8 @@
+﻿Müşteriler, başlık ve sanatçıyı arayarak CD'leri satın alabilir.
+Plak şirketleri, depoya toplu CD gönderir.
+Müşteriler yalnızca stokta bulunan ürünleri sipariş edebilir.
+
+In English
+Customers can buy CDs, searching on the title and the artist.
+Record labels send batches of CDs to the warehouse.
+Customers can only order titles that are in stock.
