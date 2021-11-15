@@ -1,4 +1,6 @@
-﻿namespace MarsRoverDuplication.Test
+﻿using System;
+
+namespace MarsRoverDuplication.Test
 {
     public class Rover
     {
@@ -11,20 +13,22 @@
 
         public void Go(string instructions)
         {
-           
-            if (Facing == "N")
-            {
-                Facing = "E";
-                return;
-            }
-
-            if (Facing == "E")
-            {
-                Facing = "S";
-                return;
-            }
-
-            Facing = "W";
+            string[] compass = { "N", "E", "S", "W" };
+            int currentFacing = Array.IndexOf(compass,Facing);
+            Facing = compass[currentFacing + 1];
+            // if (Facing == "N")
+            // {
+            //     Facing = "E";
+            //     return;
+            // }
+            //
+            // if (Facing == "E")
+            // {
+            //     Facing = "S";
+            //     return;
+            // }
+            //
+            // Facing = "W";
         }
     }
 }
