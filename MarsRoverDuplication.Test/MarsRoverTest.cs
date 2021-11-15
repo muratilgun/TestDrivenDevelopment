@@ -19,5 +19,13 @@ namespace MarsRoverDuplication.Test
             rover.Go("R");
             Assert.AreEqual("S",rover.Facing);  
         }
+
+        [Test]
+        public void TurnsRightSouthToWest()
+        {
+            Rover rover= new Rover("S");
+            rover.Go("R");
+            Assert.AreEqual("W", rover.Facing);
+        }
     }
 }
