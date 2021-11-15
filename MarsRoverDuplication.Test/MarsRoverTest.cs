@@ -12,20 +12,12 @@ namespace MarsRoverDuplication.Test
             Assert.AreEqual("E",rover.Facing);
         }
 
-    }
-
-    public class Rover
-    {
-        public Rover(string facing)
+        [Test]
+        public void TurnsRightEastToSouth()
         {
-
-        }
-
-        public object Facing => "E";
-
-        public void Go(string instructions)
-        {
+            Rover rover = new Rover("E");
+            rover.Go("R");
+            Assert.AreEqual("S",rover.Facing);  
         }
     }
-    
 }
