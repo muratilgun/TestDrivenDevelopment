@@ -15,7 +15,7 @@ namespace MarsRoverDuplication.Test
         {
             string[] compass = { "N", "E", "S", "W" };
             int currentFacing = Array.IndexOf(compass,Facing);
-            Facing = compass[currentFacing + 1];
+            Facing = compass[(currentFacing + 1)% 4];
             // if (Facing == "N")
             // {
             //     Facing = "E";

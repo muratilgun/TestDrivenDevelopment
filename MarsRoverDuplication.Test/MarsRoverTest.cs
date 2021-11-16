@@ -4,17 +4,19 @@ namespace MarsRoverDuplication.Test
 {
     public class MarsRoverTest
     {
-        [TestCase("N","E")]
-        [TestCase("E","S")]
-        [TestCase("S","W")]
-        [TestCase("W","N")]
-        public void TurnsRightsClockwise(string startsFacing, string endsFacing)
+        [TestCase("R","N","E")]
+        [TestCase("R","E","S")]
+        [TestCase("R","S","W")]
+        [TestCase("R","W","N")]
+        
+        public void TurnsRightsClockwise(string direction, string startsFacing, string endsFacing)
         {
             Rover rover = new Rover(startsFacing);
-            rover.Go("R");
+            rover.Go(direction);
             Assert.AreEqual(endsFacing,rover.Facing);
         }
 
+        
         [Test]
         public void TurnsRightEastToSouth()
         {
