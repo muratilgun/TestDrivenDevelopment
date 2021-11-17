@@ -36,15 +36,13 @@ namespace MarsRoverInsideOut
         {
             if (instructions == "R")
             {
-                string[] compass = new[] { "N", "E", "S", "W" };
-                int current = Array.IndexOf(compass, Facing);
-                Facing = compass[(current + 1) % 4];
+                
+                Turn(new[] { "N", "E", "S", "W" });
             }
             else
             {
-                string[] compass = new[] { "N", "W", "S", "E" };
-                int current = Array.IndexOf(compass, Facing);
-                Facing = compass[(current + 1) % 4];
+                Turn(new[] { "N", "W", "S", "E" });
+
             }
         }
         public void Right()
