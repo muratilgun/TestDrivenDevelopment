@@ -37,11 +37,11 @@ namespace MarsRoverInsideOut
             if (instructions == "R")
             {
                 
-                Turn(new[] { "N", "E", "S", "W" });
+                Right();
             }
             else
             {
-                Turn(new[] { "N", "W", "S", "E" });
+                Left();
 
             }
         }

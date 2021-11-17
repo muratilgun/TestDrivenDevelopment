@@ -26,10 +26,10 @@ namespace MarsRoverInsideOut
             rover.Left();
             Assert.AreEqual(endsFacing,rover.Facing);
         }
-        [TestCase("N",new[]{5,5},new[]{5,4})]
-        [TestCase("E",new[]{5,5},new[]{4,5})]
-        [TestCase("S",new[]{5,5},new[]{5,6})]
-        [TestCase("W",new[]{5,5},new[]{6,5})]
+        [TestCase("N",new[]{5,5},new[]{5,6})]
+        [TestCase("E",new[]{5,5},new[]{6,5})]
+        [TestCase("S",new[]{5,5},new[]{5,4})]
+        [TestCase("W",new[]{5,5},new[]{4,5})]
         public void MovesForwardInDirectionFacing(string facing, int[] startPosition, int[] endPosition)
         {
             Rover rover = new Rover(facing, startPosition);
@@ -51,9 +51,9 @@ namespace MarsRoverInsideOut
         [Test]
         public void ExecutesSequenceOfInstructions()
         {
-            Rover rover = new Rover("N",new []{5,5});
+            Rover rover = new Rover("N",new []{7,5});
             rover.Go("RFF");
-            Assert.AreEqual("E",rover.Facing);
+            Assert.AreEqual("W",rover.Facing);
             Assert.AreEqual(new []{7,5},rover.Position);
         }
     }
