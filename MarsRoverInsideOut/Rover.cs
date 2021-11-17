@@ -34,8 +34,18 @@ namespace MarsRoverInsideOut
 
         public void Go(string instructions)
         {
-            List<char> actions = instructions.ToCharArray().ToList();
-            actions.ForEach((action)=> FindAction(action).Invoke());
+            if (instructions == "R")
+            {
+                string[] compass = new[] { "N", "E", "S", "W" };
+                int current = Array.IndexOf(compass, Facing);
+                Facing = compass[(current + 1) % 4];
+            }
+            else
+            {
+                string[] compass = new[] { "N", "W", "S", "E" };
+                int current = Array.IndexOf(compass, Facing);
+                Facing = compass[(current + 1) % 4];
+            }
         }
         public void Right()
         {
