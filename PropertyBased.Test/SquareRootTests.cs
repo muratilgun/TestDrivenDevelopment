@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace PropertyBased.Test
 {
@@ -6,10 +7,10 @@ namespace PropertyBased.Test
     public class SquareRootTests
     {
         [Test]
-        public void SquareRootOf([Range(0,99)]double number)
+        public void SquareRootOf([Random(0.0, 100.0, 100)] double number)
         {
             double root = new Maths().Sqrt(number);
-            Assert.AreEqual(number,root * root , 1E-12);
+            Assert.AreEqual(number, root * root, 1E-12);
         }
     }
 }
