@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Moq;
 using NUnit.Framework;
 
 namespace VideoLibrary.Test
@@ -12,10 +13,26 @@ namespace VideoLibrary.Test
             string title = "The Abyss";
             int year = 1989;
             IMovieInfo info = new StubMovieInfo(title, year);
-            Library library = new Library(info);
+            Library library = new Library(info, new Mock<IMailServer>().Object);
             library.Donate("tt0000");
             Assert.True(library.Contains(title,year));
         }
+
+        [Test]
+        public void SendNewMovieEmailToAllMembers()
+        {
+            var mailServer = new Mock<IMailServer>();
+            string title = "The Abyss";
+            int year = 1989;
+            Library library = new Library(new StubMovieInfo(title,year), mailServer.Object);
+            library.Donate("tt0000");
+            mailServer.Verify(m => m.Send("New Movie", "All Members", new string[]{title, year.ToString()}));
+        }
+    }
+
+    public interface IMailServer
+    {
+        void Send(string template, string distributionList, string[] args);
     }
 
     public class StubMovieInfo : IMovieInfo
@@ -43,11 +60,13 @@ namespace VideoLibrary.Test
     public class Library
     {
         private readonly IMovieInfo _info;
+        private readonly IMailServer _mailServer;
         private List<Movie> _catalogue = new List<Movie>();
 
-        public Library(IMovieInfo info)
+        public Library(IMovieInfo info, IMailServer mailServer)
         {
             _info = info;
+            _mailServer = mailServer;
         }
 
         public bool Contains(string title, int year)
@@ -57,7 +76,9 @@ namespace VideoLibrary.Test
 
         public void Donate(string imdbId)
         {
-            _catalogue.Add(_info.GetMovie(imdbId));
+            Movie movie = _info.GetMovie(imdbId);
+            _catalogue.Add(movie);
+            _mailServer.Send("New Movie","All Members",new []{movie.Title,movie.Year.ToString()});
         }
     }
 
