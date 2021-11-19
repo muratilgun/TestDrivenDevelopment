@@ -5,15 +5,11 @@ namespace PropertyBased.Test
     [TestFixture]
     public class SquareRootTests
     {
-        [TestCase(0,0)]
-        [TestCase(1,1)]
-        [TestCase(4,2)]
-        [TestCase(9,3)]
-        [TestCase(16,4)]
-        [TestCase(0.25,0.5)]
-        public void SquareRootOf(double number,double root)
+        [Test]
+        public void SquareRootOf([Range(0,99)]double number)
         {
-            Assert.AreEqual(root,new Maths().Sqrt(number));
+            double root = new Maths().Sqrt(number);
+            Assert.AreEqual(number,root * root);
         }
     }
 }
