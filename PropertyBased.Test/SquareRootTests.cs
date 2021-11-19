@@ -5,10 +5,10 @@ namespace PropertyBased.Test
     [TestFixture]
     public class SquareRootTests
     {
-        [Test]
-        public void RooOf0Is0()
+        [TestCase(0,0)]
+        public void RooOf0Is0(double root, double number)
         {
-            Assert.AreEqual(0.0,new Maths().Sqrt(0.0));
+            Assert.AreEqual(root,new Maths().Sqrt(number));
         }
 
         [Test]
