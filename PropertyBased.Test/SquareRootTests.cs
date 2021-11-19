@@ -6,30 +6,14 @@ namespace PropertyBased.Test
     public class SquareRootTests
     {
         [TestCase(0,0)]
-        public void RooOf0Is0(double root, double number)
+        [TestCase(1,1)]
+        [TestCase(4,2)]
+        [TestCase(9,3)]
+        [TestCase(16,4)]
+        [TestCase(0.25,0.5)]
+        public void SquareRootOf(double number,double root)
         {
             Assert.AreEqual(root,new Maths().Sqrt(number));
-        }
-
-        [Test]
-        public void RootOf1Is1()
-        {
-            Assert.AreEqual(1.0,new Maths().Sqrt(1.0));
-        }
-        [Test]
-        public void RootOf4Is2()
-        {
-            Assert.AreEqual(2.0,new Maths().Sqrt(4.0));
-        }
-        [Test]
-        public void RootOf9Is3()
-        {
-            Assert.AreEqual(3.0,new Maths().Sqrt(9.0));
-        }
-        [Test]
-        public void RootOf25Is5()
-        {
-            Assert.AreEqual(5.0,new Maths().Sqrt(25.0));
         }
     }
 }
