@@ -30,27 +30,32 @@ namespace MarsRover
                 
                 if (instruction == 'F')
                 {
-                    if (Facing == "N")
-                    {
-                        Position = new[] { Position[0], Position[1] + 1 };
-                    }
-
-                    if (Facing == "E")
-                    {
-                        Position = new[] { Position[0] + 1, Position[1] };
-                    }
-
-                    if (Facing == "S")
-                    {
-                        Position = new[] { Position[0], Position[1] - 1 };
-                    }
-
-                    if (Facing == "W")
-                    {
-                        Position = new[] { Position[0] - 1, Position[1] };
-                    }
+                    Forward();
                 }
             });
+        }
+
+        private void Forward()
+        {
+            if (Facing == "N")
+            {
+                Position = new[] { Position[0], Position[1] + 1 };
+            }
+
+            if (Facing == "E")
+            {
+                Position = new[] { Position[0] + 1, Position[1] };
+            }
+
+            if (Facing == "S")
+            {
+                Position = new[] { Position[0], Position[1] - 1 };
+            }
+
+            if (Facing == "W")
+            {
+                Position = new[] { Position[0] - 1, Position[1] };
+            }
         }
 
         private void Left()
