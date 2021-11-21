@@ -19,22 +19,8 @@ namespace MarsRover
             {
                 if (instruction == 'R')
                 {
-                    if (Facing == "N")
-                    {
-                        Facing = "E";
-                        return;
-                    }
-                    if (Facing == "E")
-                    {
-                        Facing = "S";
-                        return;
-                    }
-                    if (Facing == "S")
-                    {
-                        Facing = "W";
-                        return;
-                    }
-                    Facing = "N";
+                    // if (Right()) return;
+                    Right();
                 }
                 if (instruction == 'L')
                 {
@@ -79,6 +65,29 @@ namespace MarsRover
                     }
                 }
             });
+        }
+
+        private void Right()
+        {
+            if (Facing == "N")
+            {
+                Facing = "E";
+                return;
+            }
+
+            if (Facing == "E")
+            {
+                Facing = "S";
+                return;
+            }
+
+            if (Facing == "S")
+            {
+                Facing = "W";
+                return;
+            }
+
+            Facing = "N";
         }
     }
 }
