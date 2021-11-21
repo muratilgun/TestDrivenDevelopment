@@ -2,9 +2,9 @@
 
 namespace MarsRover.Test
 {
-    public class Rover
+    public class MarsRover
     {
-        public Rover(string facing, int x, int y)
+        public MarsRover(string facing, int x, int y)
         {
             Position = new[] { x, y };
             Facing = facing;

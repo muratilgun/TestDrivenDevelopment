@@ -7,9 +7,9 @@ namespace MarsRover.Test
         [Test]
         public void ExecutesSequenceOfInstructions()
         {
-            Rover rover = new Rover("N", 5, 5);
-            rover.Go("RFF");
-            Assert.AreEqual(new[] {7,5}, rover.Position);
+            MarsRover marsRover = new MarsRover("N", 5, 5);
+            marsRover.Go("RFF");
+            Assert.AreEqual(new[] {7,5}, marsRover.Position);
         } 
     }
 }
