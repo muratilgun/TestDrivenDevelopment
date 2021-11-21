@@ -17,20 +17,21 @@ namespace MarsRover
 
         public void Go(string instructions)
         {
-            instructions.ToCharArray().ToList().ForEach((instruction) =>
-            {
-                Dictionary<char, Action> commands = new Dictionary<char, Action>()
-                {
-                    {'R',Right},
-                    {'L',Left},
-                    {'F',Forward},
-                    {'B',Back},
-                };
-                commands[instruction]();
-                
-                
-            });
+            instructions.ToCharArray().ToList().ForEach(Execute);
         }
+
+        private void Execute(char instruction)
+        {
+            Dictionary<char, Action> commands = new Dictionary<char, Action>()
+            {
+                { 'R', Right },
+                { 'L', Left },
+                { 'F', Forward },
+                { 'B', Back },
+            };
+            commands[instruction]();
+        }
+
         private void Back()
         {
             if (Facing == "N")
