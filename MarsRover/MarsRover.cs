@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MarsRover.Test
+namespace MarsRover
 {
     public class MarsRover
     {
