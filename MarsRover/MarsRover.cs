@@ -6,6 +6,8 @@ namespace MarsRover
 {
     public class MarsRover
     {
+        private static readonly string[] AntiClockwise = new []{ "N", "W", "S", "E" };
+
         public MarsRover(string facing, int x, int y)
         {
             Position = new[] { x, y };
@@ -17,6 +19,7 @@ namespace MarsRover
 
         public void Go(string instructions)
         {
+            // instructions.ToCharArray().ToList().ForEach((instruction) => { Execute(instruction); });
             instructions.ToCharArray().ToList().ForEach(Execute);
         }
 
@@ -78,47 +81,17 @@ namespace MarsRover
         }
         private void Left()
         {
-            if (Facing == "N")
-            {
-                Facing = "S";
-                return;
-            }
-
-            if (Facing == "W")
-            {
-                Facing = "S";
-                return;
-            }
-
-            if (Facing == "S")
-            {
-                Facing = "E";
-                return;
-            }
-
-            Facing = "N";
+            
+            Turn(AntiClockwise);
         }
         private void Right()
         {
-            if (Facing == "N")
-            {
-                Facing = "E";
-                return;
-            }
-
-            if (Facing == "E")
-            {
-                Facing = "S";
-                return;
-            }
-
-            if (Facing == "S")
-            {
-                Facing = "W";
-                return;
-            }
-
-            Facing = "N";
+          Turn(new []{"N","E","S","W"});
+        }
+        private void Turn(string[] compass)
+        {
+            int current = Array.IndexOf(compass, Facing);
+            Facing = compass[(current + 1) % 4];
         }
     }
 }
