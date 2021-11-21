@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MarsRover
 {
@@ -17,29 +19,18 @@ namespace MarsRover
         {
             instructions.ToCharArray().ToList().ForEach((instruction) =>
             {
-                if (instruction == 'R')
+                Dictionary<char, Action> commands = new Dictionary<char, Action>()
                 {
-                    // if (Right()) return;
-                    Right();
-                }
-                if (instruction == 'L')
-                {
-                    // if (Left()) return;
-                    Left();
-                }
+                    {'R',Right},
+                    {'L',Left},
+                    {'F',Forward},
+                    {'B',Back},
+                };
+                commands[instruction]();
                 
-                if (instruction == 'F')
-                {
-                    Forward();
-                }
-
-                if (instruction == 'B')
-                {
-                    Back();
-                }
+                
             });
         }
-
         private void Back()
         {
             if (Facing == "N")
@@ -62,7 +53,6 @@ namespace MarsRover
                 Position = new[] { Position[0] + 1, Position[1] };
             }
         }
-
         private void Forward()
         {
             if (Facing == "N")
@@ -85,7 +75,6 @@ namespace MarsRover
                 Position = new[] { Position[0] - 1, Position[1] };
             }
         }
-
         private void Left()
         {
             if (Facing == "N")
@@ -108,7 +97,6 @@ namespace MarsRover
 
             Facing = "N";
         }
-
         private void Right()
         {
             if (Facing == "N")
