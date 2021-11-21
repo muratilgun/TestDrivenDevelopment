@@ -7,6 +7,7 @@ namespace MarsRover
     public class MarsRover
     {
         private static readonly string[] AntiClockwise = new []{ "N", "W", "S", "E" };
+        private static readonly string[] Clockwise = new []{"N","E","S","W"};
 
         public MarsRover(string facing, int x, int y)
         {
@@ -86,7 +87,7 @@ namespace MarsRover
         }
         private void Right()
         {
-          Turn(new []{"N","E","S","W"});
+          Turn(Clockwise);
         }
         private void Turn(string[] compass)
         {
