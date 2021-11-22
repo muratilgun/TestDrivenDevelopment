@@ -1,0 +1,8 @@
+﻿String Calculator
+1. Create a simple String Calculator with a method signature ;
+
+_______________________
+int Add(string numbers)
+The method can the up to two numbers, separated by commas, and will return their sum.
+for example "" or "1" or "1,2" as inputs.
+(for an empty string it will return 0)
