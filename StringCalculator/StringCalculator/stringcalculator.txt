@@ -23,3 +23,6 @@ to change a delimiter, the begining of the string will contain a separate line t
 
 ___________________________
 
+5. Calling Add with a negative number will throw an exception "negatives not allowed"
+and the negative that was passed.
+if there are multiple negatives, show all of them in the exception message.

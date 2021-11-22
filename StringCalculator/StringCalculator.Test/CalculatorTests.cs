@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Xunit;
 
 namespace StringCalculator.Test
@@ -32,7 +33,6 @@ namespace StringCalculator.Test
             result.Should().Be(expected);
         }
         
-        
         [Theory]
         [InlineData("1\n2,3",6)]
         [InlineData("10\n90,10\n20",130)]
@@ -45,8 +45,7 @@ namespace StringCalculator.Test
             // Assert
             result.Should().Be(expected);
         }
-        
-        // //;\n1;2
+
         [Theory]
         [InlineData("//;\n1;2",3)]
         [InlineData("//;\n1;2;4",7)]
@@ -60,5 +59,17 @@ namespace StringCalculator.Test
             result.Should().Be(expected);
         }
         
+        [Theory]
+        [InlineData("1,2,-1","-1")]
+        [InlineData("//;\n1;-2;-4","-2,-4")]
+        public void Add_ShouldThrownAnExcepiton_WhenNegativeNumbersAreUsed(string calculation, string negativeNumbers)
+        {
+            // Arrange
+            var sut = new Calculator();
+            // Act
+            Action action = () => sut.Add(calculation);
+            // Assert
+            action.Should().Throw<Exception>().WithMessage("Negatives not allowed: " + negativeNumbers);
+        }
     }
 }
