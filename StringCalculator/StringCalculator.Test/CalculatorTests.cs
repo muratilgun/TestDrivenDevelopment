@@ -6,6 +6,8 @@ namespace StringCalculator.Test
 {
     public class CalculatorTests
     {
+        #region TEST 1
+
         [Theory]
         [InlineData("",0)]
         [InlineData("1",1)]
@@ -19,7 +21,11 @@ namespace StringCalculator.Test
             // Assert
             result.Should().Be(expected);
         }
-        
+
+        #endregion
+
+        #region TEST 2
+
         [Theory]
         [InlineData("1,2,3",6)]
         [InlineData("10,90,10,20",130)]
@@ -32,7 +38,11 @@ namespace StringCalculator.Test
             // Assert
             result.Should().Be(expected);
         }
-        
+
+        #endregion
+
+        #region TEST 3
+
         [Theory]
         [InlineData("1\n2,3",6)]
         [InlineData("10\n90,10\n20",130)]
@@ -46,6 +56,10 @@ namespace StringCalculator.Test
             result.Should().Be(expected);
         }
 
+        #endregion
+
+        #region TEST 4
+
         [Theory]
         [InlineData("//;\n1;2",3)]
         [InlineData("//;\n1;2;4",7)]
@@ -58,7 +72,11 @@ namespace StringCalculator.Test
             // Assert
             result.Should().Be(expected);
         }
-        
+
+        #endregion
+
+        #region TEST 5
+
         [Theory]
         [InlineData("1,2,-1","-1")]
         [InlineData("//;\n1;-2;-4","-2,-4")]
@@ -71,5 +89,7 @@ namespace StringCalculator.Test
             // Assert
             action.Should().Throw<Exception>().WithMessage("Negatives not allowed: " + negativeNumbers);
         }
+
+        #endregion
     }
 }
