@@ -1,4 +1,4 @@
-﻿namespace xUnit
+﻿namespace xUnitProject
 {
     public class Calculator
     {
@@ -37,11 +37,5 @@
 
             return Value /= value;
         }
-    }
-
-    public enum CalculatorState
-    {
-        Cleared,
-        Active
     }
 }
