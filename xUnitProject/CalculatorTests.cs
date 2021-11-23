@@ -16,5 +16,13 @@ namespace xUnitProject
             _sut.Add(8);
             Assert.Equal(13,_sut.Value);
         }
+        
+        [Fact]
+        public void AddTwoNumbersShouldEqualTheirEqual2()
+        {
+            _sut.Add(3);
+            _sut.Add(-3);
+            Assert.Equal(0,_sut.Value);
+        }
     }
 }
