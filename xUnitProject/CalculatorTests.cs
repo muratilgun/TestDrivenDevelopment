@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Xunit;
 
@@ -7,7 +6,12 @@ namespace xUnitProject
     public class CalculatorTests
     {
         private readonly Calculator _sut; // sut = System Under Test
-
+        public static IEnumerable<object[]> TestData()
+        {
+            yield return new object[] { 15, new decimal[] { 10, 5 } };
+            yield return new object[] { 15, new decimal[] { 5, 5, 5 } };
+            yield return new object[] { -10, new decimal[] { -30, 20 } };
+        }
         public CalculatorTests()
         {
             _sut = new Calculator();
@@ -51,12 +55,18 @@ namespace xUnitProject
 
             Assert.Equal(excepted, _sut.Value);
         }
-
-        public static IEnumerable<object[]> TestData()
+        
+        [Theory]
+        [ClassData(typeof(DivisionTestData))]
+        public void DivideManyNumbersTheory(decimal excepted, params decimal[] valuesToAdd)
         {
-            yield return new object[] { 15, new decimal[] { 10, 5 } };
-            yield return new object[] { 15, new decimal[] { 5, 5, 5 } };
-            yield return new object[] { -10, new decimal[] { -30, 20 } };
+            foreach (var value in valuesToAdd)
+            {
+                _sut.Divide(value);
+            }
+
+            Assert.Equal(excepted, _sut.Value);
         }
+        
     }
 }

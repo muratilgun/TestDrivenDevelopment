@@ -33,8 +33,9 @@
             if (Value == 0 && _state == CalculatorState.Cleared)
             {
                 _state = CalculatorState.Active;
-            }
+                return Value = value;
 
+            }
             return Value /= value;
         }
     }
