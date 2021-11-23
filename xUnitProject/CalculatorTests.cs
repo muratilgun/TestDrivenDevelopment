@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Xunit;
 
 namespace xUnitProject
@@ -28,14 +30,33 @@ namespace xUnitProject
         }
 
         [Theory]
-        [InlineData(13,5,8)]
-        [InlineData(0,-3,3)]
-        [InlineData(0,0,0)]
+        [InlineData(13, 5, 8)]
+        [InlineData(0, -3, 3)]
+        [InlineData(0, 0, 0)]
         public void AddTwoNumbersShouldEqualTheirEqualTheory(decimal excepted, decimal firstToAdd, decimal secondToAdd)
         {
             _sut.Add(firstToAdd);
             _sut.Add(secondToAdd);
             Assert.Equal(excepted, _sut.Value);
+        }
+
+        [Theory]
+        [MemberData(nameof(TestData))]
+        public void AddManyNumbersShouldEqualTheirEqualTheory(decimal excepted, params decimal[] valuesToAdd)
+        {
+            foreach (var value in valuesToAdd)
+            {
+                _sut.Add(value);
+            }
+
+            Assert.Equal(excepted, _sut.Value);
+        }
+
+        public static IEnumerable<object[]> TestData()
+        {
+            yield return new object[] { 15, new decimal[] { 10, 5 } };
+            yield return new object[] { 15, new decimal[] { 5, 5, 5 } };
+            yield return new object[] { -10, new decimal[] { -30, 20 } };
         }
     }
 }
