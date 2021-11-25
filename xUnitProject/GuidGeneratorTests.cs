@@ -3,15 +3,15 @@ using Xunit.Abstractions;
 
 namespace xUnitProject
 {
-    public class GuidGeneratorTests
+    public class GuidGeneratorTests : IClassFixture<GuidGenerator>
     {
         private readonly GuidGenerator _guidGenerator;
         private readonly ITestOutputHelper _output;
 
-        public GuidGeneratorTests(ITestOutputHelper output)
+        public GuidGeneratorTests(ITestOutputHelper output, GuidGenerator guidGenerator)
         {
-            _guidGenerator = new GuidGenerator();
             _output = output;
+            _guidGenerator = guidGenerator;
         }
 
         [Fact]
